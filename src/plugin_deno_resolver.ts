@@ -1,20 +1,19 @@
+import esbuild from "esbuild";
+import { toFileUrl } from "@std/path";
 import {
-  esbuild,
   ImportMap,
   resolveImportMap,
   resolveModuleSpecifier,
-  Scopes,
-  SpecifierMap,
-  toFileUrl,
-} from "../deps.ts";
+} from "x/importmap";
+import { Scopes, SpecifierMap } from "x/importmap/_util.ts";
 import {
   expandEmbeddedImportMap,
   readDenoConfig,
   urlToEsbuildResolution,
 } from "./shared.ts";
-
 export type { ImportMap, Scopes, SpecifierMap };
 
+/** Options for the {@link denoResolverPlugin}. */
 export interface DenoResolverPluginOptions {
   /**
    * Specify the path to a deno.json config file to use. This is equivalent to

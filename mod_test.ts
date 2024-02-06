@@ -1,12 +1,14 @@
-import { type esbuild } from "./deps.ts";
+import type esbuild from "esbuild";
+import esbuildNative from "esbuild";
+import esbuildWasm from "esbuild-wasm";
+import { join } from "@std/path";
+import { assert, assertEquals, assertStringIncludes } from "@std/assert";
 import {
   denoPlugins,
   denoResolverPlugin,
   esbuildResolutionToURL,
 } from "./mod.ts";
 import { denoLoaderPlugin } from "./src/plugin_deno_loader.ts";
-import { esbuildNative, esbuildWasm, join } from "./test_deps.ts";
-import { assert, assertEquals, assertStringIncludes } from "./test_deps.ts";
 
 await esbuildNative.initialize({});
 await esbuildWasm.initialize({});
